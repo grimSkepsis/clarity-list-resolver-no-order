@@ -145,3 +145,13 @@ clr-wizard-page::ng-deep {
 .list-confirmation .results-list-item {
   border-left: none;
 }
+
+.choices-title {
+  cursor: pointer;
+  color: #3caff6;
+}
+
+.choices-title:hover {
+  color: darkblue;
+  transition: color 200ms;
+}

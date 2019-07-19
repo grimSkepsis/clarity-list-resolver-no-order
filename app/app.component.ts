@@ -12,27 +12,7 @@ import { Subject, Observable } from 'rxjs/Rx';
   templateUrl: 'app.component.html'
 })
 export class AppComponent {
-  modalOpen = true;
-  public highlightedItemId: number;
-  public removeSelection(id: number): void {
-        let selectedItem: DiffListItem = this.resultsList.filter(item => item.id === id)[0];
-        selectedItem.selectedOption = SelectedDiffOption.NotSelected;
-        this._updateConfirmationList();
-  }
-
-  public selectOption(id: number, option: SelectedDiffOption): void {
-    let selectedItem: DiffListItem = this.listItems.filter(item => item.id === id)[0];
-    selectedItem.selectedOption = option;
-    this._updateConfirmationList();
-  }
-
-
-  public onItemHighlight(id: number): void {
-    this.highlightedItemId = id;
-    console.log("ID IS: ", id);
-  }
-
-  public listItems: Array<DiffListItem> = [
+    public listItems: Array<DiffListItem> = [
     new DiffListItem(0, "Age : Aggregate", "Age : Sensitive", SelectedDiffOption.NotSelected),
     new DiffListItem(1, "Date of Birth : Aggregate", "Date of Birth : No Access", SelectedDiffOption.NotSelected),
     new DiffListItem(2, "First Name  : Aggregate", "First Name : Sensitive", SelectedDiffOption.NotSelected),
@@ -50,6 +30,44 @@ export class AppComponent {
 
     public resultsList: Array<DiffListItem> = this.listItems;
     public confirmationList: Array<DiffListItem> = [];
+  modalOpen = true;
+  public highlightedItemId: number;
+  public removeSelection(id: number): void {
+        let selectedItem: DiffListItem = this.resultsList.filter(item => item.id === id)[0];
+        selectedItem.selectedOption = SelectedDiffOption.NotSelected;
+        this._updateConfirmationList();
+  }
+
+  public selectOption(id: number, option: SelectedDiffOption): void {
+    let selectedItem: DiffListItem = this.listItems.filter(item => item.id === id)[0];
+    selectedItem.selectedOption = option;
+    this._updateConfirmationList();
+  }
+
+  public selectAll(selectionSide: SelectedDiffOption): void {
+    switch(selectionSide) {
+      case SelectedDiffOption.LeftOption : {
+        this.listItems.map(item => item.selectedOption = SelectedDiffOption.LeftOption);
+        break;
+      }
+      case SelectedDiffOption.RightOption : {
+        this.listItems.map(item => item.selectedOption = SelectedDiffOption.RightOption);
+        break;
+      }
+      default : {
+        this.listItems.map(item => item.selectedOption = SelectedDiffOption.NotSelected);
+      }
+    }
+
+  }
+
+
+  public onItemHighlight(id: number): void {
+    this.highlightedItemId = id;
+    console.log("ID IS: ", id);
+  }
+
+
 
     private _updateConfirmationList(): void {
       this.confirmationList = this.resultsList.filter(item => item.selectedOption !== SelectedDiffOption.NotSelected);
