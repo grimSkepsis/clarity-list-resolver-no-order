@@ -24,7 +24,9 @@
           <div class="list-editor-wrapper" [class.half-view]="showingMoreInfo">
           <div class="list list-choices">
             <div class="list-item" *ngFor="let listItem of listItems" (mouseover)="onItemHighlight(listItem.id)" (mouseout)="onItemHighlight(-1)" [class.highlighted-item]="listItem.id === highlightedItemId">
-              <div class="option option-left" (click)="selectOption(listItem.id, 1)" [class.selected]="listItem.leftSideSelected">    <clr-icon shape="info" size="24" (click)="onShowMoreInfo($event, listItem.id)"></clr-icon>{{listItem.leftOption}}</div>
+              <div class="option option-left" (click)="selectOption(listItem.id, 1)" [class.selected]="listItem.leftSideSelected">    
+                <clr-icon shape="info" size="24" class="more-info-icon" (click)="onShowMoreInfo($event, listItem.id)"></clr-icon>
+                {{listItem.leftOption}}</div>
               <div class="option option-right" (click)="selectOption(listItem.id, 2)" [class.selected]="listItem.rightSideSelected">{{listItem.rightOption}}</div>
             </div>
           </div>
@@ -44,9 +46,9 @@
           <div class="more-info-container" *ngIf="showingMoreInfo">
             <div class="more-info-header-wrapper">
             <h5 class="more-info-title">{{moreInfoTitle}}</h5>
-            <clr-icon shape="times" (click)="onCloseMoreInfo()"></clr-icon>
+            <clr-icon shape="times" (click)="onCloseMoreInfo()" class="close-button"></clr-icon>
             </div>
-              <p>More detailed diff information here...</p>
+              <p>More detailed diff information about {{moreInfoTitle}} here...</p>
           </div>
         </div>
 
@@ -57,7 +59,7 @@
         <div class="list-confirmation list">
              <div class="results-list-item" *ngFor="let confirmationItem of confirmationList">
                <div class="result-content-container">
-               <clr-icon shape="times" (click)="removeSelection(confirmationItem.id)"></clr-icon>
+               <clr-icon shape="times" (click)="removeSelection(confirmationItem.id)" ></clr-icon>
                <div class="result-text">
                   {{confirmationItem.selectedOptionString}}
                </div>
