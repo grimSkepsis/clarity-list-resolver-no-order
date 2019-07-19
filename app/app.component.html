@@ -12,18 +12,19 @@
 
     <clr-wizard-page>
         <ng-template clrPageTitle>Edit List</ng-template>
+  
         <div class="resolver-container">
-                    <div class="title-wrapper">
+          <div class="title-wrapper">
             <h4 class="choices-title" (click)="selectAll(1)">V1234</h4>
             <h4 class="choices-title" (click)="selectAll(2)">V12346</h4>
             <h4 class="results-title">Final results</h4>
             <button class="btn btn-link btn-sm clear-btn" (click)="selectAll(0)" *ngIf="isClearSelectionVisible"
             >Clear Selection</button>
           </div>
-          <div class="list-editor-wrapper">
+          <div class="list-editor-wrapper" [class.half-view]="showingMoreInfo">
           <div class="list list-choices">
             <div class="list-item" *ngFor="let listItem of listItems" (mouseover)="onItemHighlight(listItem.id)" (mouseout)="onItemHighlight(-1)" [class.highlighted-item]="listItem.id === highlightedItemId">
-              <div class="option option-left" (click)="selectOption(listItem.id, 1)" [class.selected]="listItem.leftSideSelected">{{listItem.leftOption}}</div>
+              <div class="option option-left" (click)="selectOption(listItem.id, 1)" [class.selected]="listItem.leftSideSelected">    <clr-icon shape="info" size="24" (click)="onShowMoreInfo($event, listItem.id)"></clr-icon>{{listItem.leftOption}}</div>
               <div class="option option-right" (click)="selectOption(listItem.id, 2)" [class.selected]="listItem.rightSideSelected">{{listItem.rightOption}}</div>
             </div>
           </div>
@@ -39,6 +40,13 @@
                </div>
              </div>
           </div>
+          </div>
+          <div class="more-info-container" *ngIf="showingMoreInfo">
+            <div class="more-info-header-wrapper">
+            <h5 class="more-info-title">{{moreInfoTitle}}</h5>
+            <clr-icon shape="times" (click)="onCloseMoreInfo()"></clr-icon>
+            </div>
+              <p>More detailed diff information here...</p>
           </div>
         </div>
 

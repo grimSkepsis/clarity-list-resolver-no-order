@@ -71,7 +71,10 @@
 
   display: flex;
   align-items: center;
-  justify-content: center;
+}
+
+.option:nth-of-type(2) {
+  padding-left: 20px;
 }
 
 .option.selected {
@@ -116,6 +119,10 @@
   border: 1px solid black;
 }
 
+.list-editor-wrapper.half-view {
+    height: 45%;
+}
+
 ::ng-deep .modal-body {
   display: flex;
   flex-direction: column;
@@ -153,4 +160,18 @@ clr-wizard-page::ng-deep {
 .resolver-container .clear-btn {
   margin-top: 24px;
   margin-left: 8px;
+}
+
+.more-info-container {
+  border: solid 1px black;
+  border-top: none;
+  height: 50%;
+  padding: 0 24px;
+}
+
+.more-info-header-wrapper {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: space-between;
 }
