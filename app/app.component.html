@@ -29,12 +29,12 @@
              <div class="results-list-item" *ngFor="let resultItem of resultsList" [class.highlighted-item]="resultItem.id === highlightedItemId" 
              (mouseover)="onItemHighlight(resultItem.id)" (mouseout)="onItemHighlight(-1)">
                <div class="result-content-container">
-               <clr-icon shape="times" (click)="removeSelection(resultItem.id)"></clr-icon>
+               <clr-icon shape="times" (click)="removeSelection(resultItem.id)" 
+               *ngIf="resultItem.selectedOption !== 0"></clr-icon>
                <div class="result-text">
                   {{resultItem.selectedOptionString}}
                </div>
                </div>
-               <clr-icon shape="bars"></clr-icon>
              </div>
           </div>
           </div>
@@ -45,14 +45,13 @@
     <clr-wizard-page>
         <ng-template clrPageTitle>Confirm Selection</ng-template>
         <div class="list-confirmation list">
-             <div class="results-list-item" *ngFor="let resultItem of resultsList">
+             <div class="results-list-item" *ngFor="let confirmationItem of confirmationList">
                <div class="result-content-container">
-               <clr-icon shape="times" (click)="removeSelection(resultItem.id)"></clr-icon>
+               <clr-icon shape="times" (click)="removeSelection(confirmationItem.id)"></clr-icon>
                <div class="result-text">
-                  {{resultItem.selectedOptionString}}
+                  {{confirmationItem.selectedOptionString}}
                </div>
                </div>
-               <clr-icon shape="bars"></clr-icon>
              </div>
         </div>
     </clr-wizard-page>

@@ -17,17 +17,15 @@ export class AppComponent {
   public removeSelection(id: number): void {
         let selectedItem: DiffListItem = this.resultsList.filter(item => item.id === id)[0];
         selectedItem.selectedOption = SelectedDiffOption.NotSelected;
-        this.resultsList.splice(this.resultsList.indexOf(selectedItem), 1);
+        this._updateConfirmationList();
   }
 
   public selectOption(id: number, option: SelectedDiffOption): void {
     let selectedItem: DiffListItem = this.listItems.filter(item => item.id === id)[0];
     selectedItem.selectedOption = option;
-    if (this.resultsList.map(result => result.id).indexOf(selectedItem.id) === -1) {
-      this.resultsList.push(selectedItem);
-    }
+    this._updateConfirmationList();
   }
-  public resultsList: Array<DiffListItem> = [];
+
 
   public onItemHighlight(id: number): void {
     this.highlightedItemId = id;
@@ -39,22 +37,23 @@ export class AppComponent {
     new DiffListItem(1, "Date of Birth : Aggregate", "Date of Birth : No Access", SelectedDiffOption.NotSelected),
     new DiffListItem(2, "First Name  : Aggregate", "First Name : Sensitive", SelectedDiffOption.NotSelected),
   ];
+
+    public resultsList: Array<DiffListItem> = this.listItems;
+    public confirmationList: Array<DiffListItem> = [];
+
+    private _updateConfirmationList(): void {
+      this.confirmationList = this.resultsList.filter(item => item.selectedOption !== SelectedDiffOption.NotSelected);
+    }
 }
 
 export class MenuOption {
   constructor(public selected: boolean, public value: string, public displayName: string, public isOdd: boolean) { }
 }
 
-export enum CheckboxNetState {
-  INDETERMINATE, CHECKED, UNCHECKED
-}
-
-
-
 export class DiffListItem {
-  constructor(public id: number,
-    public leftOption: string,
-    public rightOption: string,
+  constructor(public readonly id: number,
+    public readonly leftOption: string,
+    public readonly rightOption: string,
     public selectedOption: SelectedDiffOption) { }
 
     public get rightSideSelected(): boolean {
@@ -66,7 +65,7 @@ export class DiffListItem {
     }
 
     public get selectedOptionString(): string {
-      return this.rightSideSelected ? this.rightOption : this.leftOption;
+      return this.selectedOption === SelectedDiffOption.NotSelected ? "" : this.rightSideSelected ? this.rightOption : this.leftOption;
     }
 }
 
