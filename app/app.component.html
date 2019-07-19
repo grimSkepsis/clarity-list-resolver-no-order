@@ -17,6 +17,8 @@
             <h4 class="choices-title" (click)="selectAll(1)">V1234</h4>
             <h4 class="choices-title" (click)="selectAll(2)">V12346</h4>
             <h4 class="results-title">Final results</h4>
+            <button class="btn btn-link btn-sm clear-btn" (click)="selectAll(0)" *ngIf="isClearSelectionVisible"
+            >Clear Selection</button>
           </div>
           <div class="list-editor-wrapper">
           <div class="list list-choices">

@@ -98,10 +98,6 @@
   border-left: 1px solid black;
 }
 
-.results-list-item {
-
-}
-
 .resolver-container {
   display: flex;
   flex-direction: column;
@@ -113,6 +109,7 @@
 
 .title-wrapper {
   display: flex;
+  height: 64px;
 }
 .list-editor-wrapper {
   display: flex;
@@ -154,4 +151,9 @@ clr-wizard-page::ng-deep {
 .choices-title:hover {
   color: darkblue;
   transition: color 200ms;
+}
+
+.resolver-container .clear-btn {
+  margin-top: 24px;
+  margin-left: 8px;
 }

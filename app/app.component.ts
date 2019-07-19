@@ -30,18 +30,21 @@ export class AppComponent {
 
     public resultsList: Array<DiffListItem> = this.listItems;
     public confirmationList: Array<DiffListItem> = [];
+    public isClearSelectionVisible: boolean = false;
   modalOpen = true;
   public highlightedItemId: number;
   public removeSelection(id: number): void {
         let selectedItem: DiffListItem = this.resultsList.filter(item => item.id === id)[0];
         selectedItem.selectedOption = SelectedDiffOption.NotSelected;
         this._updateConfirmationList();
+        this._updateClearSelectionVisibility();
   }
 
   public selectOption(id: number, option: SelectedDiffOption): void {
     let selectedItem: DiffListItem = this.listItems.filter(item => item.id === id)[0];
     selectedItem.selectedOption = option;
     this._updateConfirmationList();
+    this._updateClearSelectionVisibility();
   }
 
   public selectAll(selectionSide: SelectedDiffOption): void {
@@ -58,13 +61,20 @@ export class AppComponent {
         this.listItems.map(item => item.selectedOption = SelectedDiffOption.NotSelected);
       }
     }
-
+    this._updateConfirmationList();
+    this._updateClearSelectionVisibility();
   }
 
 
   public onItemHighlight(id: number): void {
     this.highlightedItemId = id;
     console.log("ID IS: ", id);
+  }
+
+  private _updateClearSelectionVisibility(): void {
+   this.isClearSelectionVisible = this.listItems.map(item => item.selectedOption).reduce(function areAllItemsUnselected(acc: boolean, nextItem: SelectedDiffOption): boolean {
+      return acc || nextItem !== SelectedDiffOption.NotSelected;
+    }, false);
   }
 
 
