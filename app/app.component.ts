@@ -15,19 +15,19 @@ export class AppComponent {
     public modalOpen = true;
     public highlightedItemId: number;
     public listItems: Array<DiffListItem> = [
-    new DiffListItem(0, "Age : Aggregate", "Age : Sensitive", "Age", SelectedDiffOption.NotSelected),
-    new DiffListItem(1, "Date of Birth : Aggregate", "Date of Birth : No Access", "Date of Birth", SelectedDiffOption.NotSelected),
-    new DiffListItem(2, "First Name  : Aggregate", "First Name : Sensitive", "First Name", SelectedDiffOption.NotSelected),
-    new DiffListItem(3, "Eye Color : Aggregate", "Eye Color : Sensitive", "Eye Color", SelectedDiffOption.NotSelected),
+    new DiffListItem(0,"Age : Sensitivie", "Age : Aggregate", "Age : Sensitive", "Age", SelectedDiffOption.NotSelected),
+    new DiffListItem(1, "Date of Birth : No Access", "Date of Birth : Aggregate", "Date of Birth : No Access", "Date of Birth", SelectedDiffOption.NotSelected),
+    new DiffListItem(2, "First Name  : Sensitive", "First Name  : Aggregate", "First Name : Sensitive", "First Name", SelectedDiffOption.NotSelected),
+    new DiffListItem(3, "Eye Color : No Access", "Eye Color : Aggregate", "Eye Color : Sensitive", "Eye Color", SelectedDiffOption.NotSelected),
 
-    new DiffListItem(10, "Vacation Days : Aggregate", "Vacation Days : No Access", "Vacation Days", SelectedDiffOption.NotSelected),
-    new DiffListItem(4, "Hair Color : Aggregate", "Hair Color : No Access", "Hair Color", SelectedDiffOption.NotSelected),
-    new DiffListItem(5, "Last Name  : Aggregate", "Last Name : Sensitive", "Last Name", SelectedDiffOption.NotSelected),
-    new DiffListItem(6, "Height : Aggregate", "Height : Sensitive",  "Height", SelectedDiffOption.NotSelected),
-    new DiffListItem(7, "Salary : Aggregate", "Salary : No Access", "Salary", SelectedDiffOption.NotSelected),
-    new DiffListItem(8, "Employee ID  : Aggregate", "Employee ID : Sensitive", "Employee ID", SelectedDiffOption.NotSelected),
-    new DiffListItem(9, "Gender: Aggregate", "Gender : Sensitive", "Gender", SelectedDiffOption.NotSelected),
-    new DiffListItem(11, "Marital Status  : Aggregate", "Marital Status : Sensitive", "Marital Status", SelectedDiffOption.NotSelected),
+    new DiffListItem(10,"Vacation Days : No Access", "Vacation Days : Aggregate", "Vacation Days : No Access", "Vacation Days", SelectedDiffOption.NotSelected),
+    new DiffListItem(4,"Hair Color : No Access", "Hair Color : Aggregate", "Hair Color : No Access", "Hair Color", SelectedDiffOption.NotSelected),
+    new DiffListItem(5, "Last Name  : Aggregate", "Last Name  : Aggregate", "Last Name : Sensitive", "Last Name", SelectedDiffOption.NotSelected),
+    new DiffListItem(6, "Height : Sensitive", "Height : Aggregate", "Height : Sensitive",  "Height", SelectedDiffOption.NotSelected),
+    new DiffListItem(7, "Salary : No Access", "Salary : Aggregate", "Salary : No Access", "Salary", SelectedDiffOption.NotSelected),
+    new DiffListItem(8, "Employee ID  : Sensitive", "Employee ID  : Aggregate", "Employee ID : Sensitive", "Employee ID", SelectedDiffOption.NotSelected),
+    new DiffListItem(9, "Gender: No Access", "Gender: Aggregate", "Gender : Sensitive", "Gender", SelectedDiffOption.NotSelected),
+    new DiffListItem(11, "Marital Status  : Aggregate", "Marital Status  : Aggregate", "Marital Status : Sensitive", "Marital Status", SelectedDiffOption.NotSelected),
   ];
 
     public resultsList: Array<DiffListItem> = this.listItems;
@@ -105,6 +105,7 @@ export class MenuOption {
 
 export class DiffListItem {
   constructor(public readonly id: number,
+    public readonly baseOption: string,
     public readonly leftOption: string,
     public readonly rightOption: string,
     public readonly title: string,
