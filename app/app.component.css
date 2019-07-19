@@ -1,0 +1,131 @@
+/* more menu section */
+
+.main-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.list {
+  height: 100%;
+  border: black solid 1px;
+  flex-grow: 1;
+}
+.list-choices {
+  width: 65%;
+}
+.list-results {
+  width: 35%;
+}
+
+.list-item {
+  height: 40px;
+  width: 100%;
+  display: flex;
+}
+
+.highlighted-item {
+  background: lightgray;
+}
+
+.list-item.highlighted-item .option.selected {
+  background: #3caff6;
+}
+
+.results-list-item {
+  height: 40px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 10px;
+}
+.result-content-container {
+  display: flex;
+  align-items: center; 
+}
+.result-text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 12px;
+}
+
+.results-list-item clr-icon {
+  cursor: grab;
+}
+
+.result-content-container clr-icon {
+  cursor: pointer;
+}
+
+.result-content-container clr-icon:hover {
+  color: darkgray;
+  transition: 40ms color;
+}
+
+.option {
+  width: 50%;
+  height: 100%;
+  border-bottom: 1px solid black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.option.selected {
+  background: #87cefa;
+}
+
+.option-added {
+  background: lightgreen;
+}
+.option-removed {
+  background: lightcoral;
+}
+
+.option:hover {
+  background: lightblue;
+  transition: background 200ms;
+  cursor: pointer;
+}
+
+.option-right {
+  border-left: 1px solid black;
+}
+
+.list.list-results {
+  border-left: none;
+}
+
+.resolver-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.choices-title {
+  width: 32.5%;
+}
+
+.title-wrapper {
+  display: flex;
+}
+.list-editor-wrapper {
+  display: flex;
+  height: 100%;
+}
+
+::ng-deep .modal-body {
+  display: flex;
+  flex-direction: column;
+}
+
+clr-wizard::ng-deep clr-modal .modal-body .clr-wizard-content {
+  flex-grow: 1;
+  height: 100%;
+  display: flex;
+}
+
+clr-wizard-page::ng-deep {
+  flex-grow: 1;
+}

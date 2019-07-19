@@ -1,0 +1,59 @@
+<div class="main-container">
+	<button class="btn btn-primary" (click)="modalOpen = true">Resolve List</button>
+</div>
+
+<clr-wizard #wizardmd [(clrWizardOpen)]="modalOpen" clrWizardSize="xl">
+    <clr-wizard-title>List Conflict Resolver</clr-wizard-title>
+
+    <clr-wizard-button [type]="'cancel'">Cancel</clr-wizard-button>
+    <clr-wizard-button [type]="'previous'">Back</clr-wizard-button>
+    <clr-wizard-button [type]="'next'">Next</clr-wizard-button>
+    <clr-wizard-button [type]="'finish'">Finish</clr-wizard-button>
+
+    <clr-wizard-page>
+        <ng-template clrPageTitle>Edit List</ng-template>
+        <div class="resolver-container">
+                    <div class="title-wrapper">
+            <h4 class="choices-title">V1234</h4>
+            <h4 class="choices-title">V12346</h4>
+            <h4 class="results-title">Final results</h4>
+          </div>
+          <div class="list-editor-wrapper">
+          <div class="list list-choices">
+            <div class="list-item" *ngFor="let listItem of listItems" (mouseover)="onItemHighlight(listItem.id)" (mouseout)="onItemHighlight(-1)" [class.highlighted-item]="listItem.id === highlightedItemId">
+              <div class="option option-left" (click)="selectOption(listItem.id, 1)" [class.selected]="listItem.leftSideSelected">{{listItem.leftOption}}</div>
+              <div class="option option-right" (click)="selectOption(listItem.id, 2)" [class.selected]="listItem.rightSideSelected">{{listItem.rightOption}}</div>
+            </div>
+          </div>
+          <div class="list list-results">
+             <div class="results-list-item" *ngFor="let resultItem of resultsList" [class.highlighted-item]="resultItem.id === highlightedItemId" 
+             (mouseover)="onItemHighlight(resultItem.id)" (mouseout)="onItemHighlight(-1)">
+               <div class="result-content-container">
+               <clr-icon shape="times" (click)="removeSelection(resultItem.id)"></clr-icon>
+               <div class="result-text">
+                  {{resultItem.selectedOptionString}}
+               </div>
+               </div>
+               <clr-icon shape="bars"></clr-icon>
+             </div>
+          </div>
+          </div>
+        </div>
+
+    </clr-wizard-page>
+
+    <clr-wizard-page>
+        <ng-template clrPageTitle>Confirm Selection</ng-template>
+        <div class="list-confirmation list">
+             <div class="results-list-item" *ngFor="let resultItem of resultsList">
+               <div class="result-content-container">
+               <clr-icon shape="times" (click)="removeSelection(resultItem.id)"></clr-icon>
+               <div class="result-text">
+                  {{resultItem.selectedOptionString}}
+               </div>
+               </div>
+               <clr-icon shape="bars"></clr-icon>
+             </div>
+        </div>
+    </clr-wizard-page>
+</clr-wizard>
