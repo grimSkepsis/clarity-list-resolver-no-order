@@ -186,3 +186,7 @@ clr-wizard-page::ng-deep {
   cursor: help;
   transition: color 50ms;
 }
+
+clr-wizard::ng-deep clr-modal nav.clr-wizard-stepnav-wrapper {
+  display: none;
+}
