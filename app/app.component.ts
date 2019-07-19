@@ -36,6 +36,16 @@ export class AppComponent {
     new DiffListItem(0, "Age : Aggregate", "Age : Sensitive", SelectedDiffOption.NotSelected),
     new DiffListItem(1, "Date of Birth : Aggregate", "Date of Birth : No Access", SelectedDiffOption.NotSelected),
     new DiffListItem(2, "First Name  : Aggregate", "First Name : Sensitive", SelectedDiffOption.NotSelected),
+    new DiffListItem(3, "Eye Color : Aggregate", "Eye Color : Sensitive", SelectedDiffOption.NotSelected),
+
+    new DiffListItem(10, "Vacation Days : Aggregate", "Vacation Days : No Access", SelectedDiffOption.NotSelected),
+    new DiffListItem(4, "Hair Color : Aggregate", "Hair Color : No Access", SelectedDiffOption.NotSelected),
+    new DiffListItem(5, "Last Name  : Aggregate", "Last Name : Sensitive", SelectedDiffOption.NotSelected),
+    new DiffListItem(6, "Height : Aggregate", "Height : Sensitive", SelectedDiffOption.NotSelected),
+    new DiffListItem(7, "Salary : Aggregate", "Salary : No Access", SelectedDiffOption.NotSelected),
+    new DiffListItem(8, "Employee ID  : Aggregate", "Employee ID : Sensitive", SelectedDiffOption.NotSelected),
+    new DiffListItem(9, "Gender: Aggregate", "Gender : Sensitive", SelectedDiffOption.NotSelected),
+    new DiffListItem(11, "Marital Status  : Aggregate", "Marital Status : Sensitive", SelectedDiffOption.NotSelected),
   ];
 
     public resultsList: Array<DiffListItem> = this.listItems;

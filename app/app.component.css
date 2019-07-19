@@ -8,7 +8,6 @@
 
 .list {
   height: 100%;
-  border: black solid 1px;
   flex-grow: 1;
 }
 .list-choices {
@@ -22,6 +21,10 @@
   height: 40px;
   width: 100%;
   display: flex;
+  border-bottom: solid 1px black;
+}
+.list-item:last-of-type {
+  border-bottom: none;
 }
 
 .highlighted-item {
@@ -39,6 +42,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 0 10px;
+    border-left: solid black 1px;
 }
 .result-content-container {
   display: flex;
@@ -67,7 +71,7 @@
 .option {
   width: 50%;
   height: 100%;
-  border-bottom: 1px solid black;
+
   display: flex;
   align-items: center;
   justify-content: center;
@@ -94,8 +98,8 @@
   border-left: 1px solid black;
 }
 
-.list.list-results {
-  border-left: none;
+.results-list-item {
+
 }
 
 .resolver-container {
@@ -113,6 +117,9 @@
 .list-editor-wrapper {
   display: flex;
   height: 100%;
+
+  overflow-y: auto;
+  border: 1px solid black;
 }
 
 ::ng-deep .modal-body {
@@ -128,4 +135,13 @@ clr-wizard::ng-deep clr-modal .modal-body .clr-wizard-content {
 
 clr-wizard-page::ng-deep {
   flex-grow: 1;
+}
+
+.list-confirmation {
+  border: black 1px solid;
+  overflow-x: auto;
+}
+
+.list-confirmation .results-list-item {
+  border-left: none;
 }
