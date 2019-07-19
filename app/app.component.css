@@ -12,6 +12,7 @@
 }
 .list-choices {
   width: 65%;
+  border-right: solid 1px black;
 }
 .list-results {
   width: 35%;
@@ -22,9 +23,6 @@
   width: 100%;
   display: flex;
   border-bottom: solid 1px black;
-}
-.list-item:last-of-type {
-  border-bottom: none;
 }
 
 .highlighted-item {
@@ -42,7 +40,6 @@
   align-items: center;
   justify-content: space-between;
   padding: 0 10px;
-    border-left: solid black 1px;
 }
 .result-content-container {
   display: flex;
