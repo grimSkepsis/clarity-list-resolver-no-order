@@ -125,7 +125,6 @@ export class MockDataService {
       "Eye Color : Aggregate",
       "Eye Color : Sensitive",
         "Eye Color", SelectedDiffOption.NotSelected,
-        "First Name", SelectedDiffOption.NotSelected,
             [
         new DiffFieldValuePair(
           "propertyId",
@@ -166,7 +165,6 @@ export class MockDataService {
       "Vacation Days : Aggregate",
       "Vacation Days : No Access",
       "Vacation Days", SelectedDiffOption.NotSelected,
-        "First Name", SelectedDiffOption.NotSelected,
             [
         new DiffFieldValuePair(
           "propertyId",
@@ -206,7 +204,6 @@ export class MockDataService {
       "Hair Color : Aggregate",
       "Hair Color : No Access",
        "Hair Color", SelectedDiffOption.NotSelected,
-        "First Name", SelectedDiffOption.NotSelected,
             [
         new DiffFieldValuePair(
           "propertyId",
@@ -246,7 +243,6 @@ export class MockDataService {
       "Last Name  : Aggregate",
       "Last Name : Sensitive",
        "Last Name", SelectedDiffOption.NotSelected,
-        "First Name", SelectedDiffOption.NotSelected,
             [
         new DiffFieldValuePair(
           "propertyId",
@@ -286,7 +282,6 @@ export class MockDataService {
       "Height : Aggregate",
       "Height : Sensitive",
            "Height", SelectedDiffOption.NotSelected,
-        "First Name", SelectedDiffOption.NotSelected,
             [
         new DiffFieldValuePair(
           "propertyId",
@@ -326,7 +321,6 @@ export class MockDataService {
       "Salary : No Access",
       "Salary : Aggregate",
         "Salary", SelectedDiffOption.NotSelected,
-        "First Name", SelectedDiffOption.NotSelected,
             [
         new DiffFieldValuePair(
           "propertyId",
@@ -366,7 +360,6 @@ export class MockDataService {
       "Employee ID  : Aggregate",
       "Employee ID : Sensitive",
        "Employee ID", SelectedDiffOption.NotSelected,
-        "First Name", SelectedDiffOption.NotSelected,
             [
         new DiffFieldValuePair(
           "propertyId",
@@ -406,7 +399,6 @@ export class MockDataService {
       "Gender: Aggregate",
       "Gender : Sensitive",
        "Gender", SelectedDiffOption.NotSelected,
-        "First Name", SelectedDiffOption.NotSelected,
             [
         new DiffFieldValuePair(
           "propertyId",
@@ -446,7 +438,6 @@ export class MockDataService {
       "Marital Status : Aggregate",
       "Marital Status : Sensitive",
        "Marital Status", SelectedDiffOption.NotSelected,
-        "First Name", SelectedDiffOption.NotSelected,
             [
         new DiffFieldValuePair(
           "propertyId",
