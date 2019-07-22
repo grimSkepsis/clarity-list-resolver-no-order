@@ -211,3 +211,7 @@ clr-wizard::ng-deep clr-modal nav.clr-wizard-stepnav-wrapper {
 .more-info-container .value.changed {
   background: lightblue;
 }
+
+.more-info-container .row.version-header h6 {
+  color: #3caff6;
+}
