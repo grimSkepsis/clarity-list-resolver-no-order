@@ -4,9 +4,9 @@ export class MenuOption {
 
 export class DiffListItem {
   constructor(public readonly id: number,
-    public readonly baseOption: DiffOptionObject,
-    public readonly leftOption: DiffOptionObject,
-    public readonly rightOption: DiffOptionObject,
+    public readonly baseOption: string,
+    public readonly leftOption: string,
+    public readonly rightOption: string,
     public readonly title: string,
     public selectedOption: SelectedDiffOption,
     public readonly fieldValueList: Array<DiffFieldValuePair>
@@ -21,7 +21,7 @@ export class DiffListItem {
     }
 
     public get selectedOptionString(): string {
-      return this.selectedOption === SelectedDiffOption.NotSelected ? "" : this.rightSideSelected ? this.rightOption.summaryDesc : this.leftOption.summaryDesc;
+      return this.selectedOption === SelectedDiffOption.NotSelected ? "" : this.rightSideSelected ? this.rightOption : this.leftOption;
     }
 }
 
