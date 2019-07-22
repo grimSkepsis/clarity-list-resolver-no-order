@@ -6,6 +6,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subject, Observable } from 'rxjs/Rx';
+import {DiffListItem, SelectedDiffOption} from './listResolveUtil';
 @Component({
   selector: 'my-app',
   styleUrls: ['app.component.css'],
@@ -99,34 +100,3 @@ private _findItemById(id: number): DiffListItem {
     }
 }
 
-export class MenuOption {
-  constructor(public selected: boolean, public value: string, public displayName: string, public isOdd: boolean) { }
-}
-
-export class DiffListItem {
-  constructor(public readonly id: number,
-    public readonly baseOption: string,
-    public readonly leftOption: string,
-    public readonly rightOption: string,
-    public readonly title: string,
-    public selectedOption: SelectedDiffOption,
-) { }
-
-    public get rightSideSelected(): boolean {
-      return this.selectedOption === SelectedDiffOption.RightOption;
-    }
-
-    public get leftSideSelected(): boolean {
-      return this.selectedOption === SelectedDiffOption.LeftOption;
-    }
-
-    public get selectedOptionString(): string {
-      return this.selectedOption === SelectedDiffOption.NotSelected ? "" : this.rightSideSelected ? this.rightOption : this.leftOption;
-    }
-}
-
-enum SelectedDiffOption {
-  NotSelected = 0,
-  LeftOption = 1,
-  RightOption = 2
-}
