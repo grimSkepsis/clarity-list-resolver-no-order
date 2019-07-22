@@ -26,8 +26,10 @@
             <div class="list-item" *ngFor="let listItem of listItems" (mouseover)="onItemHighlight(listItem.id)" (mouseout)="onItemHighlight(-1)" [class.highlighted-item]="listItem.id === highlightedItemId">
               <div class="option option-left" (click)="selectOption(listItem.id, 1)" [class.selected]="listItem.leftSideSelected">    
                 <clr-icon shape="info" size="24" class="more-info-icon" (click)="onShowMoreInfo($event, listItem.id)"></clr-icon>
-                {{listItem.leftOption}}</div>
-              <div class="option option-right" (click)="selectOption(listItem.id, 2)" [class.selected]="listItem.rightSideSelected">{{listItem.rightOption}}</div>
+                {{listItem.leftOption.summaryDesc}}</div>
+              <div class="option option-right" (click)="selectOption(listItem.id, 2)" [class.selected]="listItem.rightSideSelected">
+                {{listItem.rightOption.summaryDesc}}
+              </div>
             </div>
           </div>
           <div class="list list-results">

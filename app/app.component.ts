@@ -7,6 +7,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subject, Observable } from 'rxjs/Rx';
 import {DiffListItem, SelectedDiffOption} from './listResolveUtil';
+import {MockDataService} from './mockDataService'
 @Component({
   selector: 'my-app',
   styleUrls: ['app.component.css'],
@@ -15,21 +16,7 @@ import {DiffListItem, SelectedDiffOption} from './listResolveUtil';
 export class AppComponent {
     public modalOpen = true;
     public highlightedItemId: number;
-    public listItems: Array<DiffListItem> = [
-    new DiffListItem(0,"Age : Sensitivie", "Age : Aggregate", "Age : Sensitive", "Age", SelectedDiffOption.NotSelected),
-    new DiffListItem(1, "Date of Birth : No Access", "Date of Birth : Aggregate", "Date of Birth : No Access", "Date of Birth", SelectedDiffOption.NotSelected),
-    new DiffListItem(2, "First Name  : Sensitive", "First Name  : Aggregate", "First Name : Sensitive", "First Name", SelectedDiffOption.NotSelected),
-    new DiffListItem(3, "Eye Color : No Access", "Eye Color : Aggregate", "Eye Color : Sensitive", "Eye Color", SelectedDiffOption.NotSelected),
-
-    new DiffListItem(10,"Vacation Days : No Access", "Vacation Days : Aggregate", "Vacation Days : No Access", "Vacation Days", SelectedDiffOption.NotSelected),
-    new DiffListItem(4,"Hair Color : No Access", "Hair Color : Aggregate", "Hair Color : No Access", "Hair Color", SelectedDiffOption.NotSelected),
-    new DiffListItem(5, "Last Name  : Aggregate", "Last Name  : Aggregate", "Last Name : Sensitive", "Last Name", SelectedDiffOption.NotSelected),
-    new DiffListItem(6, "Height : Sensitive", "Height : Aggregate", "Height : Sensitive",  "Height", SelectedDiffOption.NotSelected),
-    new DiffListItem(7, "Salary : No Access", "Salary : Aggregate", "Salary : No Access", "Salary", SelectedDiffOption.NotSelected),
-    new DiffListItem(8, "Employee ID  : Sensitive", "Employee ID  : Aggregate", "Employee ID : Sensitive", "Employee ID", SelectedDiffOption.NotSelected),
-    new DiffListItem(9, "Gender: No Access", "Gender: Aggregate", "Gender : Sensitive", "Gender", SelectedDiffOption.NotSelected),
-    new DiffListItem(11, "Marital Status  : Aggregate", "Marital Status  : Aggregate", "Marital Status : Sensitive", "Marital Status", SelectedDiffOption.NotSelected),
-  ];
+    public listItems: Array<DiffListItem> = MockDataService.getData();
 
     public resultsList: Array<DiffListItem> = this.listItems;
     public confirmationList: Array<DiffListItem> = [];
