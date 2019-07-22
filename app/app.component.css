@@ -193,6 +193,8 @@ clr-wizard-page::ng-deep {
   border: solid 1px black;
   height: 50%;
   padding: 0 24px;
+  overflow-y: auto;
+
 }
 
 .more-info-content .row {
