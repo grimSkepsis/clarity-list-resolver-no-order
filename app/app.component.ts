@@ -22,12 +22,12 @@ export class AppComponent {
     public confirmationList: Array<DiffListItem> = [];
     public isClearSelectionVisible: boolean = false;
     public showingMoreInfo: boolean = false;
-    public moreInfoTitle: string;
+    public moreInfoObject: DiffListItem;
 
     public onShowMoreInfo(event: Event, id: number): void {
       this.showingMoreInfo = true;
       event.stopPropagation();
-      this.moreInfoTitle = this._findItemById(id).title;
+      this.moreInfoObject = this._findItemById(id);
     } 
 
     public onCloseMoreInfo(): void {

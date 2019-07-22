@@ -9,6 +9,7 @@ export class DiffListItem {
     public readonly rightOption: DiffOptionObject,
     public readonly title: string,
     public selectedOption: SelectedDiffOption,
+    public readonly fieldValueList: Array<DiffFieldValuePair>
 ) { }
 
     public get rightSideSelected(): boolean {
@@ -31,12 +32,12 @@ export enum SelectedDiffOption {
 }
 
 export class DiffOptionObject {
-  constructor(public readonly summaryDesc: string,
-              public readonly fieldValueList: Array<DiffFieldValuePair>){}
+  constructor(public readonly summaryDesc: string){}
 }
 
 export class DiffFieldValuePair {
   constructor(
+    public readonly key: string,
     public readonly baseValue: string,
     public readonly lhsValue: string,
     public readonly rhsValue: string,
