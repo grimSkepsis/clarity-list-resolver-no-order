@@ -14,6 +14,8 @@ import {MockDataService} from './mockDataService'
   templateUrl: 'app.component.html'
 })
 export class AppComponent {
+
+    public originaValuesShown: boolean = false;
     public modalOpen = true;
     public highlightedItemId: number;
     public listItems: Array<DiffListItem> = MockDataService.getData();

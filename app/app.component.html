@@ -12,18 +12,25 @@
 
     <clr-wizard-page>
         <ng-template clrPageTitle>Edit List</ng-template>
-  
-        <div class="resolver-container">
+        <clr-checkbox-wrapper>
+  <input type="checkbox" clrCheckbox value="option1" name="options" [(ngModel)]="originaValuesShown" />
+  <label>Show Original Values</label>
+</clr-checkbox-wrapper>
+        <div class="resolver-container" [class.original-values-shown]="originaValuesShown">
           <div class="title-wrapper">
-            <h4 class="choices-title" (click)="selectAll(1)">V1234</h4>
-            <h4 class="choices-title" (click)="selectAll(2)">V12346</h4>
-            <h4 class="results-title">Final results</h4>
+            <h4 class="original-title title" *ngIf="originaValuesShown">Original Values</h4>
+            <h4 class="choices-title title" (click)="selectAll(1)">V1234</h4>
+            <h4 class="choices-title title" (click)="selectAll(2)">V12346</h4>
+            <h4 class="results-title title">Final results</h4>
             <button class="btn btn-link btn-sm clear-btn" (click)="selectAll(0)" *ngIf="isClearSelectionVisible"
             >Clear Selection</button>
           </div>
           <div class="list-editor-wrapper" [class.half-view]="showingMoreInfo">
           <div class="list list-choices">
             <div class="list-item" *ngFor="let listItem of listItems" (mouseover)="onItemHighlight(listItem.id)" (mouseout)="onItemHighlight(-1)" [class.highlighted-item]="listItem.id === highlightedItemId">
+
+              <div class="option option-original" *ngIf="originaValuesShown">    
+                {{listItem.baseOption}}</div>
               <div class="option option-left" (click)="selectOption(listItem.id, 1)" [class.selected]="listItem.leftSideSelected">    
                 <clr-icon shape="info" size="24" class="more-info-icon" (click)="onShowMoreInfo($event, listItem.id)"></clr-icon>
                 {{listItem.leftOption}}</div>
@@ -62,6 +69,7 @@
                     <h6>V12346</h6>
                   </div>
                 </div>
+                <div class="key-value-row-container">
                 <div class="row" *ngFor="let valObject of moreInfoObject.fieldValueList" >
                   <div class="col base-col">
                     <div class="key">{{valObject.key}}:</div> <div class="value">{{valObject.baseValue}}</div>
@@ -73,6 +81,8 @@
                     <div class="key">{{valObject.key}}:</div> <div class="value" [class.changed]="valObject.rhsChanged">{{valObject.rhsValue}}</div>
                   </div>
                 </div>
+                </div>
+
             </div>
           </div>
         </div>
