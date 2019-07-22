@@ -41,6 +41,7 @@ export class DiffFieldValuePair {
     public readonly baseValue: string,
     public readonly lhsValue: string,
     public readonly rhsValue: string,
-    public readonly hasChanged: boolean
+    public readonly lhsChanged: boolean,
+    public readonly rhsChanged: boolean
   ){}
 }

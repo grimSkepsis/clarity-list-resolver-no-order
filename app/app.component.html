@@ -62,15 +62,15 @@
                     <h6>V12346</h6>
                   </div>
                 </div>
-                <div class="row" *ngFor="let valObject of moreInfoObject.fieldValueList" [class.changed]="valObject.hasChanged">
+                <div class="row" *ngFor="let valObject of moreInfoObject.fieldValueList" >
                   <div class="col base-col">
                     <div class="key">{{valObject.key}}:</div> <div class="value">{{valObject.baseValue}}</div>
                   </div>
                   <div class="col left-col">
-                    <div class="key">{{valObject.key}}:</div> <div class="value">{{valObject.lhsValue}}</div>
+                    <div class="key">{{valObject.key}}:</div> <div class="value" [class.changed]="valObject.lhsChanged">{{valObject.lhsValue}}</div>
                   </div>
                   <div class="col right-col">
-                    <div class="key">{{valObject.key}}:</div> <div class="value">{{valObject.rhsValue}}</div>
+                    <div class="key">{{valObject.key}}:</div> <div class="value" [class.changed]="valObject.rhsChanged">{{valObject.rhsValue}}</div>
                   </div>
                 </div>
                 <!-- <div class="row">

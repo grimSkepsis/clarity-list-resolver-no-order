@@ -208,7 +208,7 @@ clr-wizard::ng-deep clr-modal nav.clr-wizard-stepnav-wrapper {
   transition: 200ms background;
 }
 
-.more-info-container .row.changed .value {
+.more-info-container .row .value.changed  {
   background: lightblue;
 }
 
