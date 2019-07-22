@@ -170,6 +170,18 @@ clr-wizard-page::ng-deep {
   padding: 0 24px;
 }
 
+.more-info-content .row {
+  display: flex;
+}
+
+.more-info-content .row .col {
+  width: 33%;
+  display: flex;
+  padding-left: 12px;
+}
+.col .key {
+  margin-right: 8px;
+}
 .more-info-header-wrapper {
   display: flex;
   align-items: center;
@@ -189,4 +201,13 @@ clr-wizard-page::ng-deep {
 
 clr-wizard::ng-deep clr-modal nav.clr-wizard-stepnav-wrapper {
   display: none;
+}
+
+.more-info-container .row:not(.version-header):hover {
+  background: lightgray;
+  transition: 200ms background;
+}
+
+.more-info-container .value.changed {
+  background: lightblue;
 }
