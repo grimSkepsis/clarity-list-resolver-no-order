@@ -8,6 +8,7 @@
 
 .list {
   flex-grow: 1;
+  overflow-x: visible;
 }
 .list-choices {
   width: 65%;
@@ -25,14 +26,18 @@
   width: 75%;
 }
 
-.original-values-shown .list-choices .option {
-}
-
 .list-item {
   height: 40px;
   width: 100%;
   display: flex;
+  position: relative;
   border-bottom: solid 1px black;
+}
+
+.list-item .more-info-icon {
+  position: absolute;
+  left: 0px;
+  top: 8px;
 }
 
 .highlighted-item {
@@ -84,8 +89,8 @@
   align-items: center;
 }
 
-.option:not(.option-left) {
-  padding-left: 20px;
+.option {
+  padding-left: 24px;
 }
 
 .option.selected {
@@ -211,6 +216,11 @@ clr-wizard-page::ng-deep {
 
 .more-info-icon {
   color: darkblue;
+  display: none;
+}
+
+.list-item:hover .more-info-icon {
+  display: block;
 }
 
 .more-info-icon:hover {
