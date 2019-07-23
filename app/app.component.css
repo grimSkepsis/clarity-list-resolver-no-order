@@ -199,6 +199,8 @@ clr-wizard-page::ng-deep {
     flex-direction: column;
     min-height: 0;
     max-height: calc(100% - 48px);
+
+  overflow-y: auto;
 }
 
 .more-info-content .row {
@@ -208,7 +210,6 @@ clr-wizard-page::ng-deep {
 .more-info-content .key-value-row-container {
   min-height: 0;
   flex-shrink: 1;
-  overflow-y: auto;
 }
 
 .more-info-content .row .col {
